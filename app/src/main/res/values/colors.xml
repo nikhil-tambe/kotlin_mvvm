@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E96A5A</color>
+    <color name="colorPrimaryDark">#AEB1B0</color>
+    <color name="colorAccent">#E96A5A</color>
+    <color name="colorBackground">#ECF1F0</color>
+
+    <color name="colorButtonEnabled">#E96A5A</color>
+    <color name="colorButtonDisabled">#EAC1B9</color>
+    <color name="colorButtonText">#FFFFFF</color>
+
+    <color name="colorCardBackground">#FFFFFF</color>
+    <color name="colorMessageIconBackground">#7ABD31</color>
+    <color name="colorSwitchTint">#184151</color>
+    <color name="colorPagerArrowBackground">#EAC1B9</color>
+    <color name="colorCountBackground">#E62E25</color>
+
+</resources>

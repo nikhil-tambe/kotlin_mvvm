@@ -1,0 +1,29 @@
+package com.nikhil.suven.app.db.goals
+
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "goals")
+data class GoalsEntity (
+
+    @PrimaryKey
+    @ColumnInfo(name = "date_created")
+    var dateCreated: Long = System.currentTimeMillis(),
+
+    @ColumnInfo(name = "for_whom")
+    var forWhom: Int,
+
+    @ColumnInfo(name = "is_fixed")
+    var isFixed: Boolean,
+
+    @ColumnInfo(name = "date_of_purchase")
+    var dateOfPurchase: Long,
+
+    @ColumnInfo(name = "number_of_unit")
+    var numberOfUnit: Int,
+
+    @ColumnInfo(name = "purchase_price")
+    var purchasePrice: Float
+
+)

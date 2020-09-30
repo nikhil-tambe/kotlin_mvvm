@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Suven</string>
+
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- Form -->
+    <string name="is_fixed_question">Is this equity one time or recurring?</string>
+    <string name="fixed">Fixed</string>
+    <string name="variable">Variable</string>
+    <string name="date_of_purchase">Date of purchase</string>
+    <string name="number_of_units">Number of units</string>
+    <string name="purchase_price">Purchase price</string>
+    <string name="enter_your_message_here">Enter your message here</string>
+
+
+</resources>
