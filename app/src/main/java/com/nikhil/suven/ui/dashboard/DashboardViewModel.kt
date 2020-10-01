@@ -1,14 +1,15 @@
 package com.nikhil.suven.ui.dashboard
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import com.nikhil.suven.ui.goals.GoalsRepository
 
-class DashboardViewModel : ViewModel() {
+class DashboardViewModel
+@ViewModelInject
+constructor(
+    private val goalsRepository: GoalsRepository
+) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    val list = goalsRepository.getAllPurchasesLive()
+
 }

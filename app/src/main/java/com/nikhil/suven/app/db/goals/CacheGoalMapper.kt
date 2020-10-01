@@ -16,7 +16,7 @@ constructor() : EntityMapper<GoalsEntity, Goal> {
         return Goal(
             dateCreated = entity.dateCreated,
             forWhom = entity.forWhom,
-            isFixed = entity.isFixed,
+            isVariable = entity.isVariable,
             dateOfPurchase = entity.dateOfPurchase,
             numberOfUnit = entity.numberOfUnit,
             purchasePrice = entity.purchasePrice
@@ -31,7 +31,7 @@ constructor() : EntityMapper<GoalsEntity, Goal> {
         calendar.set(Calendar.MILLISECOND, 0)
         return GoalsEntity(
             forWhom = model.forWhom,
-            isFixed = model.isFixed,
+            isVariable = model.isVariable,
             dateOfPurchase = calendar.timeInMillis,
             numberOfUnit = model.numberOfUnit,
             purchasePrice = model.purchasePrice

@@ -22,4 +22,16 @@
     <dimen name="button_padding_height">12dp</dimen>
     <dimen name="button_elevation">4dp</dimen>
 
+    <dimen name="ring_size">20dp</dimen>
+    <dimen name="ring_thickness">1dp</dimen>
+
+    <dimen name="switch_circle_size">20dp</dimen>
+    <dimen name="switch_ring_thickness">2dp</dimen>
+    <dimen name="switch_track_width">20dp</dimen>
+    <dimen name="switch_track_height">10dp</dimen>
+    <dimen name="switch_track_radius">10dp</dimen>
+
+    <dimen name="text_no_data">24sp</dimen>
+
+
 </resources>

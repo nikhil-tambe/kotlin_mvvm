@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="for_who">
+        <item>Who is this investment for?*</item>
+        <item>Self</item>
+        <item>Wife</item>
+        <item>Family</item>
+    </array>
+
+</resources>

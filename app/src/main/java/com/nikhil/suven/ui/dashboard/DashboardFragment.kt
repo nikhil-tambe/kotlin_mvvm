@@ -1,36 +1,39 @@
 package com.nikhil.suven.ui.dashboard
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.nikhil.suven.R
+import com.nikhil.suven.databinding.FragmentDashboardBinding
+import com.nikhil.suven.ui.dashboard.adapter.PurchaseRecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
     private val dashboardViewModel: DashboardViewModel by viewModels()
-
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
-    }
+    private lateinit var binding: FragmentDashboardBinding
+    private val adapter = PurchaseRecyclerAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentDashboardBinding.bind(view)
+        binding.vm = dashboardViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        setUpListAdapter()
+    }
+
+    private fun setUpListAdapter() {
+        binding.purchasesRecyclerView.adapter = adapter
+        dashboardViewModel.list.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+            if(it.isNotEmpty()) {
+                binding.noDataImageView.visibility = View.GONE
+                binding.noUnitsTextView.visibility = View.GONE
+            }
+        })
     }
 }

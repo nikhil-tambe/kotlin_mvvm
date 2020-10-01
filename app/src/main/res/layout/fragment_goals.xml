@@ -20,108 +20,128 @@
             android:background="@drawable/background_rounded_start"
             android:padding="@dimen/marginS"
             android:src="@drawable/ic_round_arrow_back_24"
-            app:layout_constraintBottom_toBottomOf="@id/form_CL"
-            app:layout_constraintEnd_toStartOf="@id/form_CL"
+            app:layout_constraintBottom_toBottomOf="@id/form_ScrollView"
+            app:layout_constraintEnd_toStartOf="@id/form_ScrollView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/form_CL" />
+            app:layout_constraintTop_toTopOf="@id/form_ScrollView" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/form_CL"
+        <ScrollView
+            android:id="@+id/form_ScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/marginXL"
             android:layout_marginTop="@dimen/marginL"
             android:layout_marginEnd="@dimen/marginXL"
             android:background="@drawable/background_card"
-            android:padding="@dimen/marginM">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-            <Spinner
-                android:id="@+id/who_Spinner"
-                style="@style/Widget.AppCompat.Spinner.Underlined"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/form_CL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginL"
-                android:spinnerMode="dropdown"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="match_parent"
+                android:background="@drawable/background_card"
+                android:padding="@dimen/marginM">
 
-            <TextView
-                android:id="@+id/question_TextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginXL"
-                android:text="@string/is_fixed_question"
-                app:layout_constraintTop_toBottomOf="@id/who_Spinner" />
+                <Spinner
+                    android:id="@+id/who_Spinner"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginL"
+                    android:spinnerMode="dropdown"
+                    android:background="@android:drawable/edit_text"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/fixed_TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginL"
-                android:text="@string/fixed"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/question_TextView" />
+                <TextView
+                    android:id="@+id/question_TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginXL"
+                    android:text="@string/is_fixed_question"
+                    app:layout_constraintTop_toBottomOf="@id/who_Spinner" />
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/isFixed_SwitchCompact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/marginM"
-                app:layout_constraintTop_toTopOf="@id/fixed_TextView"
-                app:layout_constraintBottom_toBottomOf="@id/fixed_TextView"
-                app:layout_constraintStart_toEndOf="@id/fixed_TextView" />
+                <TextView
+                    android:id="@+id/fixed_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginL"
+                    android:text="@string/fixed"
+                    android:textSize="20sp"
+                    app:switchTextBold="@{!viewModel.variable}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/question_TextView" />
 
-            <TextView
-                android:id="@+id/variable_TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/marginM"
-                android:text="@string/variable"
-                android:textSize="20sp"
-                app:layout_constraintBaseline_toBaselineOf="@id/fixed_TextView"
-                app:layout_constraintStart_toEndOf="@id/isFixed_SwitchCompact" />
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/isFixed_SwitchCompact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginM"
+                    android:thumb="@drawable/switch_thumb"
+                    app:track="@drawable/switch_track"
+                    app:layout_constraintTop_toTopOf="@id/fixed_TextView"
+                    app:layout_constraintBottom_toBottomOf="@id/fixed_TextView"
+                    app:layout_constraintStart_toEndOf="@id/fixed_TextView" />
 
-            <TextView
-                android:id="@+id/purchase_TextView"
-                style="@style/Widget.AppCompat.EditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginXL"
-                android:hint="@string/date_of_purchase"
-                app:printDate="@{viewModel.dateLive}"
-                app:layout_constraintTop_toBottomOf="@id/isFixed_SwitchCompact" />
+                <TextView
+                    android:id="@+id/variable_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/marginM"
+                    android:text="@string/variable"
+                    android:textSize="20sp"
+                    app:switchTextBold="@{viewModel.variable}"
+                    app:layout_constraintBaseline_toBaselineOf="@id/fixed_TextView"
+                    app:layout_constraintStart_toEndOf="@id/isFixed_SwitchCompact" />
 
-            <EditText
-                android:id="@+id/units_EdiText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginXL"
-                android:hint="@string/number_of_units"
-                android:inputType="number"
-                app:layout_constraintTop_toBottomOf="@id/purchase_TextView" />
+                <TextView
+                    android:id="@+id/purchase_TextView"
+                    style="@style/Widget.AppCompat.EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginXL"
+                    android:hint="@string/date_of_purchase"
+                    app:printDate="@{viewModel.dateLive}"
+                    app:layout_constraintTop_toBottomOf="@id/isFixed_SwitchCompact" />
 
-            <EditText
-                android:id="@+id/purchasePrice_EdiText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginXL"
-                android:hint="@string/purchase_price"
-                android:inputType="numberDecimal"
-                app:layout_constraintTop_toBottomOf="@id/units_EdiText" />
+                <EditText
+                    android:id="@+id/units_EdiText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginXL"
+                    android:hint="@string/number_of_units"
+                    android:inputType="number"
+                    android:text="@={viewModel.numberOfUnits}"
+                    app:layout_constraintTop_toBottomOf="@id/purchase_TextView" />
 
-            <Button
-                android:id="@+id/saveGoal_Button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/marginXL"
-                android:text="Add More"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/purchasePrice_EdiText" />
+                <EditText
+                    android:id="@+id/purchasePrice_EdiText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginXL"
+                    android:hint="@string/purchase_price"
+                    android:inputType="numberDecimal"
+                    android:text="@={viewModel.purchasePrice}"
+                    app:layout_constraintTop_toBottomOf="@id/units_EdiText" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/addMore_Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginXL"
+                    android:layout_marginBottom="@dimen/marginL"
+                    android:text="Add More"
+                    android:onClick="@{() -> viewModel.addPurchase()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/purchasePrice_EdiText" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            
+        </ScrollView>
+        
         <ImageView
             android:id="@+id/more_ImageView"
             android:layout_width="wrap_content"
@@ -130,7 +150,7 @@
             android:background="@drawable/background_more_count"
             android:src="@drawable/ic_round_more_vert_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/form_CL" />
+            app:layout_constraintTop_toTopOf="@id/form_ScrollView" />
 
         <TextView
             android:id="@+id/count_TextView"
@@ -142,7 +162,8 @@
             app:layout_constraintBottom_toTopOf="@id/more_ImageView"
             app:layout_constraintTop_toTopOf="@id/more_ImageView"
             app:layout_constraintEnd_toStartOf="@id/more_ImageView"
-            tools:text="1"/>
+            tools:text="1"
+            app:showCount="@{viewModel.totalPurchases}"/>
 
         <ImageView
             android:layout_width="0dp"
@@ -150,10 +171,11 @@
             android:background="@drawable/background_rounded_end"
             android:padding="@dimen/marginS"
             android:src="@drawable/ic_round_arrow_forward_24"
-            app:layout_constraintBottom_toBottomOf="@id/form_CL"
+            app:layout_constraintBottom_toBottomOf="@id/form_ScrollView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/form_CL"
-            app:layout_constraintTop_toTopOf="@id/form_CL" />
+            app:layout_constraintStart_toEndOf="@id/form_ScrollView"
+            app:layout_constraintTop_toTopOf="@id/form_ScrollView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

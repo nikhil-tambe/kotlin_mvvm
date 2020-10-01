@@ -14,8 +14,8 @@ data class GoalsEntity (
     @ColumnInfo(name = "for_whom")
     var forWhom: Int,
 
-    @ColumnInfo(name = "is_fixed")
-    var isFixed: Boolean,
+    @ColumnInfo(name = "is_variable")
+    var isVariable: Boolean,
 
     @ColumnInfo(name = "date_of_purchase")
     var dateOfPurchase: Long,

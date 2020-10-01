@@ -14,5 +14,12 @@
     <string name="purchase_price">Purchase price</string>
     <string name="enter_your_message_here">Enter your message here</string>
 
+    <!-- Snackbar Texts -->
+    <string name="select_a_member">Select a member</string>
+    <string name="blank_form_error">Form cannot be blank</string>
+    <string name="zero_values">Values cannot zero</string>
+    <string name="purchase_added_success">Purchase added successfully</string>
+    <string name="no_units_purchased_so_far">No Units Purchased So Far</string>
+
 
 </resources>

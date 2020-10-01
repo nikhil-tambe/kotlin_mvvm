@@ -3,16 +3,16 @@
     <item>
         <shape android:shape="oval">
             <size
-                android:width="@dimen/ring_size"
-                android:height="@dimen/ring_size" />
-            <solid android:color="@color/colorCardBackground" />
+                android:width="@dimen/switch_circle_size"
+                android:height="@dimen/switch_circle_size" />
+            <solid android:color="@color/colorSwitchThumb" />
         </shape>
     </item>
     <item>
         <shape android:shape="oval">
             <stroke
-                android:width="@dimen/ring_thickness"
-                android:color="@color/colorAccent" />
+                android:width="@dimen/switch_ring_thickness"
+                android:color="@color/colorSwitchRing" />
         </shape>
     </item>
 </layer-list>

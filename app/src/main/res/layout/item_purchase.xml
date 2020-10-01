@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="pojo"
+            type="com.nikhil.suven.app.domain_model.Goal" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/marginL"
+        android:background="@drawable/background_card"
+        android:orientation="vertical"
+        android:padding="@dimen/marginS">
+
+        <TextView
+            android:id="@+id/for_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginS"
+            app:froWho="@{pojo.forWhom}" />
+
+        <TextView
+            android:id="@+id/isFixed_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginS"
+            android:text="@{pojo.variable ? `Fixed` : `Variable`}" />
+
+        <TextView
+            android:id="@+id/date_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginS"
+            app:printDate="@{pojo.dateOfPurchase}" />
+
+        <TextView
+            android:id="@+id/units_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginS"
+            app:printInt="@{pojo.numberOfUnit}" />
+
+        <TextView
+            android:id="@+id/price_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginS"
+            app:printPrice="@{pojo.purchasePrice}" />
+
+        <TextView
+            android:id="@+id/dateCreated_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginS"
+            app:printDateTime="@{pojo.dateCreated}" />
+
+    </LinearLayout>
+</layout>

@@ -11,8 +11,11 @@
 
     <color name="colorCardBackground">#FFFFFF</color>
     <color name="colorMessageIconBackground">#7ABD31</color>
-    <color name="colorSwitchTint">#184151</color>
     <color name="colorPagerArrowBackground">#EAC1B9</color>
     <color name="colorCountBackground">#E62E25</color>
+
+    <color name="colorSwitchThumb">#FFFFFF</color>
+    <color name="colorSwitchRing">#000000</color>
+    <color name="colorSwitchTrack">#184151</color>
 
 </resources>
