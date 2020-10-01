@@ -28,7 +28,6 @@ class AddPurchaseFragment : Fragment(R.layout.fragment_goals), AdapterView.OnIte
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGoalsBinding.bind(view)
 
-
         binding.apply {
             viewModel = purchaseViewModel
             lifecycleOwner = viewLifecycleOwner
@@ -58,14 +57,6 @@ class AddPurchaseFragment : Fragment(R.layout.fragment_goals), AdapterView.OnIte
         setupSnackbar()
     }
 
-    override fun onPause() {
-        super.onPause()
-        /*goalsViewModel.apply {
-            setNumberOfUnits(binding.unitsEdiText.text.toString())
-            setPurchasePrice(binding.purchasePriceEdiText.text.toString())
-        }*/
-    }
-
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         purchaseViewModel.forWhom = position
     }
@@ -75,7 +66,8 @@ class AddPurchaseFragment : Fragment(R.layout.fragment_goals), AdapterView.OnIte
     }
 
     private fun setupSnackbar() {
-        view?.setupSnackbar(this, purchaseViewModel.snackbarText, Snackbar.LENGTH_SHORT)
+        view?.setupSnackbar(this,
+            purchaseViewModel.snackbarText, Snackbar.LENGTH_SHORT)
     }
 
 }

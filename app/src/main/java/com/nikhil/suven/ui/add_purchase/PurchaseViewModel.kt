@@ -57,7 +57,7 @@ constructor(
     /**
      * Keeps track of purchase price in form
      * */
-    var purchasePrice = MutableLiveData<String>()
+    val purchasePrice = MutableLiveData<String>()
 
     /**
      * Adds a new purchase if all conditions are satisfied
@@ -100,7 +100,9 @@ constructor(
     }
 
     private fun clearFields() {
-
+        _dateLive.postValue(0)
+        numberOfUnits.postValue("")
+        purchasePrice.postValue("")
     }
 
     /**

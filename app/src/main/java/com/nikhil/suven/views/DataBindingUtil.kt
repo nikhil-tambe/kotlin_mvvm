@@ -27,8 +27,11 @@ fun switchTextBold(textView: TextView, isFixed: Boolean) {
 @BindingAdapter("printDate")
 fun printDate(view: View, timeInMillis: Long) {
     if (timeInMillis == 0L) {
-        //view.text = ""
-        if (view is EditText) view.hint = view.resources.getString(R.string.date_of_purchase)
+        //val hint = view.resources.getString(R.string.date_of_purchase)
+        when(view){
+            is TextView -> view.text = ""
+            is EditText -> view.setText("")
+        }
     } else {
         val date = SimpleDateFormat("dd MMM yyyy", Locale.ENGLISH)
             .format(Date(timeInMillis))

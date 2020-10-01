@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginM"
+        android:layout_margin="@dimen/marginS"
         android:background="@drawable/background_dash_card"
         android:orientation="vertical"
         android:padding="@dimen/marginM">
