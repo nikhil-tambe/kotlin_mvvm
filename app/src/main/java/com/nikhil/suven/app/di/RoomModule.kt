@@ -20,7 +20,6 @@ object RoomModule {
     @Provides
     fun provideRoomDatabase(@ApplicationContext context: Context): FintechDB {
         return Room.databaseBuilder(context, FintechDB::class.java, FintechDB.DB_NAME)
-            .fallbackToDestructiveMigration()
             .build()
     }
 

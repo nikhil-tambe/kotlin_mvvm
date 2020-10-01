@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="botMessage"
             type="com.nikhil.suven.app.domain_model.Message" />
@@ -11,18 +12,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginS">
+        android:layout_margin="@dimen/marginS"
+        android:paddingEnd="80dp">
 
         <TextView
             android:id="@+id/message_TextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="100dp"
-            android:padding="@dimen/marginXS"
             android:background="@drawable/background_message_bot"
-            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/marginXS"
+            android:text="@{botMessage.message}"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@{botMessage.message}"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/time_TextView"

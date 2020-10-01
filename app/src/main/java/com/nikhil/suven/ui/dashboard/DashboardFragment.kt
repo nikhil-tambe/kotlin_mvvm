@@ -33,6 +33,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             if(it.isNotEmpty()) {
                 binding.noDataImageView.visibility = View.GONE
                 binding.noUnitsTextView.visibility = View.GONE
+                binding.purchaseMessageTextView.visibility = View.GONE
             }
         })
     }

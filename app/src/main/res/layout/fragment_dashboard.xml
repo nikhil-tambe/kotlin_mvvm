@@ -36,10 +36,20 @@
             android:id="@+id/noUnits_TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginM"
             android:gravity="center"
             android:textSize="@dimen/text_no_data"
             app:layout_constraintTop_toBottomOf="@id/noData_ImageView"
             android:text="@string/no_units_purchased_so_far"/>
+
+        <TextView
+            android:id="@+id/purchaseMessage_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/marginM"
+            app:layout_constraintTop_toBottomOf="@id/noUnits_TextView"
+            android:text="Purchased units will be shown here"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

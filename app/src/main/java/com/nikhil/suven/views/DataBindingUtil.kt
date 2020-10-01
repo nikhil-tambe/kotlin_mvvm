@@ -45,7 +45,7 @@ fun printDateTime(view: View, timeInMillis: Long) {
         //view.text = ""
         if (view is EditText) view.hint = view.resources.getString(R.string.date_of_purchase)
     } else {
-        val date = SimpleDateFormat("dd MMM yyyy, HH:mm:ss a", Locale.ENGLISH)
+        val date = SimpleDateFormat("dd MMM yyyy, hh:mm:ss a", Locale.ENGLISH)
             .format(Date(timeInMillis))
         printFormattedValue(view, date)
     }
@@ -79,15 +79,15 @@ fun showCount(view: TextView, count: Int) {
 /**
  * Print int values in view
  * */
-@BindingAdapter("printInt")
-fun printInt(view: View, value: Int) {
+@BindingAdapter("printUnits")
+fun printUnits(view: View, value: Int) {
     if (value == 0) {
         if (view is EditText) {
             view.setText("")
             return
         }
     }
-    printFormattedValue(view, value.toString())
+    printFormattedValue(view, value.toString().plus(" Units"))
 }
 
 @BindingAdapter("printPrice")
@@ -98,7 +98,7 @@ fun printPrice(view: View, price: Float) {
             return
         }
     }
-    val priceS = String.format(Locale.getDefault(), "%.2f", price)
+    val priceS = String.format(Locale.getDefault(), "%.2f", price).plus("/- only")
     printFormattedValue(view, priceS)
 }
 

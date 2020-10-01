@@ -8,7 +8,7 @@ import com.nikhil.suven.app.db.BaseDao
 @Dao
 abstract class MessageDao : BaseDao<MessageEntity> {
 
-    @Query("select * from messages")
+    @Query("select * from messages order by time_stamp desc")
     abstract fun getAllMessages() : LiveData<List<MessageEntity>>
 
 }

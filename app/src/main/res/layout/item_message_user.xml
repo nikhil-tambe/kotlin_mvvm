@@ -12,18 +12,18 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginS">
+        android:layout_margin="@dimen/marginS"
+        android:paddingStart="80dp">
 
         <TextView
             android:id="@+id/message_TextView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
             android:background="@drawable/background_message_owner"
-            android:gravity="end"
             android:padding="@dimen/marginXS"
             android:text="@{userMessage.message}"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
