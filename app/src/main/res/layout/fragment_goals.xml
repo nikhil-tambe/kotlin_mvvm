@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.nikhil.suven.ui.goals.GoalsViewModel" />
+            type="com.nikhil.suven.ui.add_purchase.PurchaseViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

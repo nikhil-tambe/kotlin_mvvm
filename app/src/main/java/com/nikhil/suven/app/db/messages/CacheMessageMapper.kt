@@ -9,7 +9,7 @@ class CacheMessageMapper
     override fun mapFromEntity(entity: MessageEntity): Message {
         return Message(
             message = entity.message,
-            isSender = entity.isSender,
+            isOwner = entity.isUser,
             timestamp = entity.timestamp
         )
     }
@@ -17,10 +17,13 @@ class CacheMessageMapper
     override fun mapToEntity(model: Message): MessageEntity {
         return MessageEntity(
             message = model.message,
-            isSender = model.isSender,
+            isUser = model.isOwner,
             timestamp = model.timestamp
         )
     }
 
+    fun mapFromEntityList(list: List<MessageEntity>): List<Message> {
+        return list.map { mapFromEntity(it) }
+    }
 
 }

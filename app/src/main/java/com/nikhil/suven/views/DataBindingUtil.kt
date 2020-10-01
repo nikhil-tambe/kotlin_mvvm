@@ -51,6 +51,18 @@ fun printDateTime(view: View, timeInMillis: Long) {
     }
 }
 
+@BindingAdapter("printMessageTime")
+fun printMessageTime(view: View, timeInMillis: Long) {
+    if (timeInMillis == 0L) {
+        //view.text = ""
+        if (view is EditText) view.hint = view.resources.getString(R.string.date_of_purchase)
+    } else {
+        val date = SimpleDateFormat("hh:mm a", Locale.ENGLISH)
+            .format(Date(timeInMillis))
+        printFormattedValue(view, date)
+    }
+}
+
 /**
  * Prints total number of entries (integer)
  */

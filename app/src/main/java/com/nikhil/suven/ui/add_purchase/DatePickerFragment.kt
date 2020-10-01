@@ -1,4 +1,4 @@
-package com.nikhil.suven.ui.goals
+package com.nikhil.suven.ui.add_purchase
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import java.util.*
 
+@ExperimentalCoroutinesApi
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
-    private val viewModel: GoalsViewModel by activityViewModels()
+    private val viewModel: PurchaseViewModel by activityViewModels()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()

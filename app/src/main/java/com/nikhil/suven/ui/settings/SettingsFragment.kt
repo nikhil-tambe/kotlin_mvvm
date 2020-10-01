@@ -15,10 +15,12 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nikhil.suven.R
 import com.nikhil.suven.databinding.FragmentSettingsBinding
-import com.nikhil.suven.ui.goals.GoalsFragment
+import com.nikhil.suven.ui.add_purchase.AddPurchaseFragment
 import com.nikhil.suven.ui.your_family.YourFamilyFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class SettingsFragment : Fragment(R.layout.fragment_settings), TabLayout.OnTabSelectedListener {
 
@@ -91,13 +93,14 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), TabLayout.OnTabSe
     }
 }
 
+@ExperimentalCoroutinesApi
 class DemoCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> GoalsFragment()
+            0 -> AddPurchaseFragment()
             //1 -> KnowYou()
             //2 -> KnowYourRisk()
             else -> YourFamilyFragment()

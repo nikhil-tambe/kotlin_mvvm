@@ -8,18 +8,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chat_RecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/marginS"
-            android:layout_marginEnd="@dimen/marginS"
-            app:layout_constraintBottom_toTopOf="@id/message_EditText"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content"
+            android:padding="@dimen/marginM"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <EditText
+        <!--<EditText
             android:id="@+id/message_EditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:src="@drawable/ic_round_send_24"
             app:layout_constraintTop_toTopOf="@id/message_EditText"
             app:layout_constraintBottom_toBottomOf="@id/message_EditText"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

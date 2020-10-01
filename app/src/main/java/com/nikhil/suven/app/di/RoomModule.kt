@@ -2,19 +2,14 @@ package com.nikhil.suven.app.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.nikhil.suven.app.db.FintechDB
-import com.nikhil.suven.app.db.goals.GoalsDao
+import com.nikhil.suven.app.db.transaction.TransactionDao
 import com.nikhil.suven.app.db.messages.MessageDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.coroutineScope
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -31,8 +26,8 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun provideGoalsDao(fintechDB: FintechDB): GoalsDao {
-        return fintechDB.goalsDao
+    fun provideGoalsDao(fintechDB: FintechDB): TransactionDao {
+        return fintechDB.transactionDao
     }
 
     @Singleton

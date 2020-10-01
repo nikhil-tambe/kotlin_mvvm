@@ -1,6 +1,5 @@
 package com.nikhil.suven.utils
 
-import android.app.ProgressDialog.show
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -28,7 +27,7 @@ fun View.setupSnackbar(
  * Transforms static java function Snackbar.make() to an extension function on View.
  */
 fun View.showSnackbar(any: Any, timeLength: Int) {
-    val s = when(any){
+    val s = when (any) {
         is String -> any
         is Int -> context.getString(any)
         else -> "N/A"

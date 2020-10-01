@@ -1,6 +1,6 @@
 package com.nikhil.suven.app.domain_model
 
-data class Goal(
+data class Transaction(
     val dateCreated: Long = System.currentTimeMillis(),
     val forWhom: Int,
     val isVariable: Boolean,

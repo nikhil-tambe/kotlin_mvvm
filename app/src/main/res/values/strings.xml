@@ -2,8 +2,8 @@
     <string name="app_name">Suven</string>
 
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
-    <string name="title_profile">Profile</string>
+    <string name="title_settings">Add</string>
+    <string name="title_profile">Messages</string>
 
     <!-- Form -->
     <string name="is_fixed_question">Is this equity one time or recurring?</string>

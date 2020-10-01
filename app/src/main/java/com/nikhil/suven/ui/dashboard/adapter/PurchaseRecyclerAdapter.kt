@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nikhil.suven.app.domain_model.Goal
+import com.nikhil.suven.app.domain_model.Transaction
 import com.nikhil.suven.databinding.ItemPurchaseBinding
 
 class PurchaseRecyclerAdapter :
-    ListAdapter<Goal, PurchaseViewHolder>(PurchaseDiffCallback()) {
+    ListAdapter<Transaction, PurchaseViewHolder>(PurchaseDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PurchaseViewHolder {
         return PurchaseViewHolder.from(parent)
@@ -25,7 +25,7 @@ class PurchaseRecyclerAdapter :
 class PurchaseViewHolder private constructor(val binding: ItemPurchaseBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bindItem(item: Goal) {
+    fun bindItem(item: Transaction) {
         binding.pojo = item
         binding.executePendingBindings()
     }
@@ -39,12 +39,12 @@ class PurchaseViewHolder private constructor(val binding: ItemPurchaseBinding) :
     }
 }
 
-class PurchaseDiffCallback : DiffUtil.ItemCallback<Goal>() {
-    override fun areItemsTheSame(oldItem: Goal, newItem: Goal): Boolean {
+class PurchaseDiffCallback : DiffUtil.ItemCallback<Transaction>() {
+    override fun areItemsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
         return oldItem.dateCreated == newItem.dateCreated
     }
 
-    override fun areContentsTheSame(oldItem: Goal, newItem: Goal): Boolean {
+    override fun areContentsTheSame(oldItem: Transaction, newItem: Transaction): Boolean {
         return oldItem == newItem
     }
 }

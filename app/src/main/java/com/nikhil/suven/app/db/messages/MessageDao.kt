@@ -1,5 +1,6 @@
 package com.nikhil.suven.app.db.messages
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import com.nikhil.suven.app.db.BaseDao
@@ -8,6 +9,6 @@ import com.nikhil.suven.app.db.BaseDao
 abstract class MessageDao : BaseDao<MessageEntity> {
 
     @Query("select * from messages")
-    abstract fun getAllMessages() : List<MessageEntity>
+    abstract fun getAllMessages() : LiveData<List<MessageEntity>>
 
 }

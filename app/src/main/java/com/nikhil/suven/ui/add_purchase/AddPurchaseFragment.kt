@@ -1,4 +1,4 @@
-package com.nikhil.suven.ui.goals
+package com.nikhil.suven.ui.add_purchase
 
 import android.os.Bundle
 import android.view.View
@@ -15,10 +15,10 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
-class GoalsFragment : Fragment(R.layout.fragment_goals), AdapterView.OnItemSelectedListener {
+class AddPurchaseFragment : Fragment(R.layout.fragment_goals), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: FragmentGoalsBinding
-    private val goalsViewModel: GoalsViewModel by activityViewModels()
+    private val purchaseViewModel: PurchaseViewModel by activityViewModels()
     private val forWhoArray: Array<String> by lazy {
         val ac = requireNotNull(activity)
         ac.resources.getStringArray(R.array.for_who)
@@ -30,7 +30,7 @@ class GoalsFragment : Fragment(R.layout.fragment_goals), AdapterView.OnItemSelec
 
 
         binding.apply {
-            viewModel = goalsViewModel
+            viewModel = purchaseViewModel
             lifecycleOwner = viewLifecycleOwner
 
             val spinnerAdapter = ArrayAdapter<String>(
@@ -41,8 +41,8 @@ class GoalsFragment : Fragment(R.layout.fragment_goals), AdapterView.OnItemSelec
             spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             with(whoSpinner) {
                 adapter = spinnerAdapter
-                setSelection(goalsViewModel.forWhom, false)
-                onItemSelectedListener = this@GoalsFragment
+                setSelection(purchaseViewModel.forWhom, false)
+                onItemSelectedListener = this@AddPurchaseFragment
             }
 
             purchaseTextView.setOnClickListener {
@@ -51,8 +51,8 @@ class GoalsFragment : Fragment(R.layout.fragment_goals), AdapterView.OnItemSelec
                 }
             }
 
-            isFixedSwitchCompact.setOnCheckedChangeListener{buttonView, isChecked ->
-                goalsViewModel.isVariable.postValue(isChecked)
+            isFixedSwitchCompact.setOnCheckedChangeListener{_, isChecked ->
+                purchaseViewModel.isVariable.postValue(isChecked)
             }
         }
         setupSnackbar()
@@ -67,7 +67,7 @@ class GoalsFragment : Fragment(R.layout.fragment_goals), AdapterView.OnItemSelec
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        goalsViewModel.forWhom = position
+        purchaseViewModel.forWhom = position
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -75,7 +75,7 @@ class GoalsFragment : Fragment(R.layout.fragment_goals), AdapterView.OnItemSelec
     }
 
     private fun setupSnackbar() {
-        view?.setupSnackbar(this, goalsViewModel.snackbarText, Snackbar.LENGTH_SHORT)
+        view?.setupSnackbar(this, purchaseViewModel.snackbarText, Snackbar.LENGTH_SHORT)
     }
 
 }

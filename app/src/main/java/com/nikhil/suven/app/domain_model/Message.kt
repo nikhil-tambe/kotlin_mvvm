@@ -4,6 +4,6 @@ import androidx.room.ColumnInfo
 
 data class Message (
     val message: String,
-    val isSender: Boolean,
+    val isOwner: Boolean,
     val timestamp: Long = System.currentTimeMillis()
 )

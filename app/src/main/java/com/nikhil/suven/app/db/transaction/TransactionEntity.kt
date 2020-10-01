@@ -1,11 +1,11 @@
-package com.nikhil.suven.app.db.goals
+package com.nikhil.suven.app.db.transaction
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "goals")
-data class GoalsEntity (
+@Entity(tableName = "transactions")
+data class TransactionEntity (
 
     @PrimaryKey
     @ColumnInfo(name = "date_created")

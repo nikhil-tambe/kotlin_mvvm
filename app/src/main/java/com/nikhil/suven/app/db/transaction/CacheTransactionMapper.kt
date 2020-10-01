@@ -1,6 +1,6 @@
-package com.nikhil.suven.app.db.goals
+package com.nikhil.suven.app.db.transaction
 
-import com.nikhil.suven.app.domain_model.Goal
+import com.nikhil.suven.app.domain_model.Transaction
 import com.nikhil.suven.utils.EntityMapper
 import java.util.*
 import javax.inject.Inject
@@ -8,12 +8,12 @@ import javax.inject.Inject
 /**
  * Utility class to map GoalsEntity to Goal and vice versa.
  */
-class CacheGoalMapper
+class CacheTransactionMapper
 @Inject
-constructor() : EntityMapper<GoalsEntity, Goal> {
+constructor() : EntityMapper<TransactionEntity, Transaction> {
 
-    override fun mapFromEntity(entity: GoalsEntity): Goal {
-        return Goal(
+    override fun mapFromEntity(entity: TransactionEntity): Transaction {
+        return Transaction(
             dateCreated = entity.dateCreated,
             forWhom = entity.forWhom,
             isVariable = entity.isVariable,
@@ -23,13 +23,13 @@ constructor() : EntityMapper<GoalsEntity, Goal> {
         )
     }
 
-    override fun mapToEntity(model: Goal): GoalsEntity {
+    override fun mapToEntity(model: Transaction): TransactionEntity {
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
         calendar.set(Calendar.MINUTE, 0)
         calendar.set(Calendar.SECOND, 0)
         calendar.set(Calendar.MILLISECOND, 0)
-        return GoalsEntity(
+        return TransactionEntity(
             forWhom = model.forWhom,
             isVariable = model.isVariable,
             dateOfPurchase = calendar.timeInMillis,
@@ -38,7 +38,7 @@ constructor() : EntityMapper<GoalsEntity, Goal> {
         )
     }
 
-    fun mapFromEntityList(list: List<GoalsEntity>): List<Goal> {
+    fun mapFromEntityList(list: List<TransactionEntity>): List<Transaction> {
         return list.map { mapFromEntity(it) }
     }
 

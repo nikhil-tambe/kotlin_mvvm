@@ -2,14 +2,14 @@ package com.nikhil.suven.ui.dashboard
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import com.nikhil.suven.ui.goals.GoalsRepository
+import com.nikhil.suven.ui.add_purchase.PurchaseRepository
 
 class DashboardViewModel
 @ViewModelInject
 constructor(
-    private val goalsRepository: GoalsRepository
+    private val purchaseRepository: PurchaseRepository
 ) : ViewModel() {
 
-    val list = goalsRepository.getAllPurchasesLive()
+    val list = purchaseRepository.getAllPurchasesLive()
 
 }

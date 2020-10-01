@@ -1,4 +1,4 @@
-package com.nikhil.suven.ui.goals
+package com.nikhil.suven.ui.add_purchase
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikhil.suven.R
-import com.nikhil.suven.app.domain_model.Goal
+import com.nikhil.suven.app.domain_model.Transaction
 import com.nikhil.suven.utils.DataState
 import com.nikhil.suven.utils.Event
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -15,10 +15,10 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 @ExperimentalCoroutinesApi
-class GoalsViewModel
+class PurchaseViewModel
 @ViewModelInject
 constructor(
-    private val repository: GoalsRepository
+    private val repository: PurchaseRepository
 ) : ViewModel() {
 
     /**
@@ -79,7 +79,7 @@ constructor(
             _snackbarText.value = Event(R.string.zero_values)
             return
         }
-        val goal = Goal(
+        val goal = Transaction(
             forWhom = forWhom,
             isVariable = currentIsVariable,
             purchasePrice = price.toFloat(),

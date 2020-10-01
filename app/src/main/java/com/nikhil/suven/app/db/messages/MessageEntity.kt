@@ -15,6 +15,6 @@ data class MessageEntity (
     val message: String,
 
     @ColumnInfo(name = "is_sender")
-    val isSender: Boolean
+    val isUser: Boolean
 
 )
