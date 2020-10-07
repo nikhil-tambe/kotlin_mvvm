@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/container_FrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="46dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.nikhil.magnifiedbottombar.MagnifiedBottomBar
+            android:id="@+id/magnifiedBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:mbn_backgroundBottomColor="@color/colorCardBackground"
+            app:mbn_circleColor="@color/colorAccent"
+            app:mbn_defaultIconColor="@color/colorPrimaryDark"
+            app:mbn_hasAnimation="true"
+            app:mbn_rippleColor="#424242"
+            app:mbn_selectedIconColor="@color/colorBackground"
+            app:mbn_shadowColor="#212121" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -20,6 +20,7 @@
     <string name="zero_values">Values cannot zero</string>
     <string name="purchase_added_success">Purchase added successfully</string>
     <string name="no_units_purchased_so_far">No Units Purchased So Far</string>
+    <string name="main_page_selected">%s page is selected</string>
 
 
 </resources>

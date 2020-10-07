@@ -18,6 +18,15 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
     lateinit var binding: FragmentChatBinding
     private val adapter = ChatRecyclerAdapter()
 
+    companion object{
+        fun newInstance(): ChatFragment {
+            val args = Bundle()
+            val fragment = ChatFragment()
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentChatBinding.bind(view)

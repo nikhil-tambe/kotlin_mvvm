@@ -1,2 +1,3 @@
+include ':magnifiedBottomBar'
 include ':app'
 rootProject.name = "Suven"

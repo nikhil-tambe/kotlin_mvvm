@@ -17,6 +17,12 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private lateinit var binding: FragmentDashboardBinding
     private val adapter = PurchaseRecyclerAdapter()
 
+    companion object{
+        fun newInstance(): DashboardFragment {
+            return DashboardFragment()
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentDashboardBinding.bind(view)
@@ -30,7 +36,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         binding.purchasesRecyclerView.adapter = adapter
         dashboardViewModel.list.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
-            if(it.isNotEmpty()) {
+            if (it.isNotEmpty()) {
                 binding.noDataImageView.visibility = View.GONE
                 binding.noUnitsTextView.visibility = View.GONE
                 binding.purchaseMessageTextView.visibility = View.GONE

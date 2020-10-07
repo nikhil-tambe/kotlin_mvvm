@@ -26,7 +26,7 @@
             android:id="@+id/message_EditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/marginS"
+            android:layout_margin="@dimen/marginM"
             android:hint="@string/enter_your_message_here"
             android:text="@={vm.messageText}"
             app:layout_constraintBottom_toBottomOf="parent"

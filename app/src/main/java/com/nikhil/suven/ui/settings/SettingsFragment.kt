@@ -45,10 +45,20 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), TabLayout.OnTabSe
         ContextCompat.getColor(requireContext(), R.color.colorPagerArrowBackground)
     }
 
+    companion object{
+        fun newInstance(): SettingsFragment {
+            val args = Bundle()
+            val fragment = SettingsFragment()
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSettingsBinding.bind(view)
 
+        binding.pager.isSaveEnabled = false
         binding.pager.adapter = DemoCollectionAdapter(this)
         TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
             tab.customView = getTabView(position)
@@ -106,4 +116,6 @@ class DemoCollectionAdapter(fragment: Fragment) : FragmentStateAdapter(fragment)
             else -> YourFamilyFragment()
         }
     }
+
+
 }
