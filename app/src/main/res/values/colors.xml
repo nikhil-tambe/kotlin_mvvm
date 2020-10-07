@@ -18,5 +18,9 @@
     <color name="colorSwitchRing">#000000</color>
     <color name="colorSwitchTrack">#184151</color>
 
+    <color name="color_bottom_bar">#E7E7E7</color>
+    <color name="color_default_icon">#AEB1B0</color>
+    <color name="color_selected_icon">#FFFFFF</color>
+
 
 </resources>

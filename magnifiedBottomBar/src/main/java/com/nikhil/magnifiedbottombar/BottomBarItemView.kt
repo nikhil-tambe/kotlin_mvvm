@@ -40,76 +40,76 @@ class BottomBarItemView @JvmOverloads constructor(
     var defaultIconColor = 0
         set(value) {
             field = value
-                ImageViewCompat.setImageTintList(
-                    binding.iv,
-                    ofColorStateList(if (!isEnabledCell) defaultIconColor else selectedIconColor)
-                )
+            ImageViewCompat.setImageTintList(
+                binding.iv,
+                ofColorStateList(if (!isEnabledCell) defaultIconColor else selectedIconColor)
+            )
         }
     var selectedIconColor = 0
         set(value) {
             field = value
-                ImageViewCompat.setImageTintList(
-                    binding.iv,
-                    ofColorStateList(if (!isEnabledCell) defaultIconColor else selectedIconColor)
-                )
+            ImageViewCompat.setImageTintList(
+                binding.iv,
+                ofColorStateList(if (!isEnabledCell) defaultIconColor else selectedIconColor)
+            )
         }
     var circleColor = 0
         set(value) {
             field = value
-                isEnabledCell = isEnabledCell
+            isEnabledCell = isEnabledCell
         }
 
     var icon = 0
         set(value) {
             field = value
-                binding.iv.setImageResource(value)
+            binding.iv.setImageResource(value)
         }
 
     var count: String? =
         EMPTY_VALUE
         set(value) {
             field = value
-                if (count != null && count == EMPTY_VALUE) {
-                    binding.tvCount.text = ""
-                    binding.tvCount.visibility = View.INVISIBLE
-                } else {
-                    if (count != null && count?.length ?: 0 >= 3) {
-                        field = count?.substring(0, 1) + ".."
-                    }
-                    binding.tvCount.text = count
-                    binding.tvCount.visibility = View.VISIBLE
-                    val scale = if (count?.isEmpty() == true) 0.5f else 1f
-                    binding.tvCount.scaleX = scale
-                    binding.tvCount.scaleY = scale
+            if (count != null && count == EMPTY_VALUE) {
+                binding.tvCount.text = ""
+                binding.tvCount.visibility = View.INVISIBLE
+            } else {
+                if (count != null && count?.length ?: 0 >= 3) {
+                    field = count?.substring(0, 1) + ".."
                 }
+                binding.tvCount.text = count
+                binding.tvCount.visibility = View.VISIBLE
+                val scale = if (count?.isEmpty() == true) 0.5f else 1f
+                binding.tvCount.scaleX = scale
+                binding.tvCount.scaleY = scale
+            }
 
         }
 
     private var iconSize = 48f.dp(context)
         set(value) {
             field = value
-                binding.iv.updateLayoutParams<FrameLayout.LayoutParams> {
-                    it.width = value.toInt()
-                    it.height = value.toInt()
-                }
-                binding.iv.pivotX = iconSize / 2f
-                binding.iv.pivotY = iconSize / 2f
+            binding.iv.updateLayoutParams<FrameLayout.LayoutParams> {
+                it.width = value.toInt()
+                it.height = value.toInt()
+            }
+            binding.iv.pivotX = iconSize / 2f
+            binding.iv.pivotY = iconSize / 2f
 
         }
 
     var countTextColor = 0
         set(value) {
             field = value
-                binding.tvCount.setTextColor(field)
+            binding.tvCount.setTextColor(field)
         }
 
     var countBackgroundColor = 0
         set(value) {
             field = value
-                val d = GradientDrawable()
-                d.setColor(field)
-                d.shape = GradientDrawable.OVAL
-                ViewCompat.setBackground(binding.tvCount, d)
+            val d = GradientDrawable()
+            d.setColor(field)
+            d.shape = GradientDrawable.OVAL
+            ViewCompat.setBackground(binding.tvCount, d)
 
         }
 
@@ -123,7 +123,7 @@ class BottomBarItemView @JvmOverloads constructor(
     var rippleColor = 0
         set(value) {
             field = value
-                isEnabledCell = isEnabledCell
+            isEnabledCell = isEnabledCell
 
         }
 
@@ -132,7 +132,11 @@ class BottomBarItemView @JvmOverloads constructor(
     private var progress = 0f
         set(value) {
             field = value
-            binding.fl.y = (1f - progress) * 18f.dp(context) - 3f.dp(context)
+            if (progress == 1f) {
+                binding.fl.y = 6f.dp(context)
+            } else {
+                binding.fl.y = (1f - progress) * 18f.dp(context) - 3f.dp(context)
+            }
 
             ImageViewCompat.setImageTintList(
                 binding.iv,
@@ -155,7 +159,7 @@ class BottomBarItemView @JvmOverloads constructor(
             val m = 24.dp(context)
             binding.vCircle.x = (1f - progress) *
                     (if (isFromLeft) -m else m) + ((measuredWidth - 48f.dp(context)) / 2f)
-            binding.vCircle.y = (1f - progress) * measuredHeight + 6.dp(context)
+            binding.vCircle.y = (1f - progress) * measuredHeight + 18.dp(context)
         }
 
     var isEnabledCell = false

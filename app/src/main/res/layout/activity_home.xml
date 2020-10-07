@@ -23,12 +23,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:mbn_backgroundBottomColor="@color/colorCardBackground"
+            app:mbn_backgroundBottomColor="@color/color_bottom_bar"
             app:mbn_circleColor="@color/colorAccent"
-            app:mbn_defaultIconColor="@color/colorPrimaryDark"
+            app:mbn_defaultIconColor="@color/color_default_icon"
             app:mbn_hasAnimation="true"
-            app:mbn_rippleColor="#424242"
-            app:mbn_selectedIconColor="@color/colorBackground"
+            app:mbn_selectedIconColor="@color/color_selected_icon"
             app:mbn_shadowColor="#212121" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
